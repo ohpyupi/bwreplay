@@ -1,8 +1,19 @@
 import {createLinkedListNode} from "../../../dataTypes/LinkedList";
 import {parseSection} from "../../parseSection";
-import {SectionNodeData} from "../types";
+import {GameEngine, SectionNodeData} from "../types";
 import {isPrintableByte} from "../../../utils";
-import {parseHeaderPlayers, HEADER_PLAYERS_BUFFER_SIZE} from "./parseHeaderPlayers";
+import {parseHeaderPlayers} from "./parseHeaderPlayers";
+
+const mapByteToGameEnum = (byte: number) => {
+    switch (byte) {
+        case 0x0:
+            return GameEngine.Starcraft
+        case 0x1:
+            return GameEngine.Broodwar
+        default:
+            return GameEngine.Unknown
+    }
+}
 
 export const headerSectionNode = createLinkedListNode<SectionNodeData>('header', {
     parser: (buffer, offset, result) => {
@@ -10,7 +21,7 @@ export const headerSectionNode = createLinkedListNode<SectionNodeData>('header',
         const {metadata, dataBuffer, getNextSectionOffset} = parseSection(sectionBuffer)
 
         const game = {
-            engine: dataBuffer.readUint8(0x0),
+            engine: mapByteToGameEnum(dataBuffer.readUint8(0x0)),
             frame: dataBuffer.readUint32LE(0x1),
             startedAtInSec: dataBuffer.readUint32LE(0x8),
             name: dataBuffer.subarray(0x18, 0x18 + 28).filter(isPrintableByte).toString()

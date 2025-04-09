@@ -36,7 +36,7 @@ describe('parseReplay', () => {
         expect(parsedReplayOrigLocalGame1.header).toHaveProperty('metadata.checksum')
         expect(parsedReplayOrigLocalGame1.header?.data.game).toMatchInlineSnapshot(`
 {
-  "engine": 0,
+  "engine": "starcraft",
   "frame": 13936,
   "name": "supergentle",
   "startedAtInSec": 1743740565,
@@ -71,7 +71,7 @@ describe('parseReplay', () => {
         expect(parsedReplayBwLadderGame1.header).toHaveProperty('metadata.checksum')
         expect(parsedReplayBwLadderGame1.header?.data.game).toMatchInlineSnapshot(`
 {
-  "engine": 1,
+  "engine": "broodwar",
   "frame": 10754,
   "name": "AH\`gPwk]]WZC",
   "startedAtInSec": 1742809475,
@@ -107,7 +107,7 @@ describe('parseReplay', () => {
         expect(parsedReplayBwLadderGame2.header).toHaveProperty('metadata.checksum')
         expect(parsedReplayBwLadderGame2.header?.data.game).toMatchInlineSnapshot(`
 {
-  "engine": 1,
+  "engine": "broodwar",
   "frame": 6971,
   "name": "fNxbHwocBGaS",
   "startedAtInSec": 1742470968,
@@ -143,7 +143,7 @@ describe('parseReplay', () => {
         expect(parsedReplayBwLadderGame3.header).toHaveProperty('metadata.checksum')
         expect(parsedReplayBwLadderGame3.header?.data.game).toMatchInlineSnapshot(`
 {
-  "engine": 1,
+  "engine": "broodwar",
   "frame": 11055,
   "name": "YrPRFmVSXUwp",
   "startedAtInSec": 1704885363,
