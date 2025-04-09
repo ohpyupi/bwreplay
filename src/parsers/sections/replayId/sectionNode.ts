@@ -1,6 +1,6 @@
-import {createLinkedListNode} from "../../dataTypes/LinkedList";
-import {parseSection} from "../parseSection";
-import {SectionNodeData} from "./types";
+import {createLinkedListNode} from "../../../dataTypes/LinkedList";
+import {parseSection} from "../../parseSection";
+import {SectionNodeData} from "../types";
 
 export const replayIdSectionNode = createLinkedListNode<SectionNodeData>('replayId', {
     parser: (buffer, offset, result) => {
