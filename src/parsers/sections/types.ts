@@ -9,6 +9,12 @@ export type ParsedSection<T> = {
     data: T
 }
 
+export enum GameEngine {
+    Starcraft = 'starcraft',
+    Broodwar = 'broodwar',
+    Unknown = 'unknown'
+}
+
 export enum PlayerType {
     Human = 'human',
     Computer = 'computer',
@@ -37,7 +43,7 @@ export type ParsedHeaderPlayers = {
 
 export type ParsedHeaderSectionData = {
     game: {
-        engine: number
+        engine: GameEngine
         frame: number
         startedAtInSec: number
         name: string
