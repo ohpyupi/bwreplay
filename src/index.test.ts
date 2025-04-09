@@ -34,46 +34,145 @@ describe('parseReplay', () => {
     })
     it('parses the header section', () => {
         expect(parsedReplayOrigLocalGame1.header).toHaveProperty('metadata.checksum')
+        expect(parsedReplayOrigLocalGame1.header?.data.game).toMatchInlineSnapshot(`
+{
+  "engine": 0,
+  "frame": 13936,
+  "name": "supergentle",
+  "startedAtInSec": 1743740565,
+}
+`)
+        expect(parsedReplayOrigLocalGame1.header?.data.map).toMatchInlineSnapshot(`
+{
+  "name": "Bottleneck",
+}
+`)
+        expect(parsedReplayOrigLocalGame1.header?.data.hostPlayerName).toMatchInlineSnapshot(`""`)
+        expect(parsedReplayOrigLocalGame1.header?.data.players).toMatchInlineSnapshot(`
+{
+  "Alpha Squadron": {
+    "id": 255,
+    "name": "Alpha Squadron",
+    "race": "terran",
+    "slotId": 1,
+    "team": 1,
+    "type": "computer",
+  },
+  "supergentle": {
+    "id": 0,
+    "name": "supergentle",
+    "race": "terran",
+    "slotId": 0,
+    "team": 1,
+    "type": "human",
+  },
+}
+`)
         expect(parsedReplayBwLadderGame1.header).toHaveProperty('metadata.checksum')
+        expect(parsedReplayBwLadderGame1.header?.data.game).toMatchInlineSnapshot(`
+{
+  "engine": 1,
+  "frame": 10754,
+  "name": "AH\`gPwk]]WZC",
+  "startedAtInSec": 1742809475,
+}
+`)
+        expect(parsedReplayBwLadderGame1.header?.data.map).toMatchInlineSnapshot(`
+{
+  "name": "Deja Vu SE 2.0",
+}
+`)
+        expect(parsedReplayBwLadderGame1.header?.data.hostPlayerName).toMatchInlineSnapshot(`"NAGUNBLO"`)
+        expect(parsedReplayBwLadderGame1.header?.data.players).toMatchInlineSnapshot(`
+{
+  "NAGUNBLO": {
+    "id": 0,
+    "name": "NAGUNBLO",
+    "race": "zerg",
+    "slotId": 0,
+    "team": 1,
+    "type": "human",
+  },
+  "SKTX_Mini": {
+    "id": 1,
+    "name": "SKTX_Mini",
+    "race": "protoss",
+    "slotId": 1,
+    "team": 2,
+    "type": "human",
+  },
+}
+`)
+
         expect(parsedReplayBwLadderGame2.header).toHaveProperty('metadata.checksum')
-        expect(parsedReplayOrigLocalGame1.header?.data).toMatchInlineSnapshot(`
+        expect(parsedReplayBwLadderGame2.header?.data.game).toMatchInlineSnapshot(`
 {
-  "gameEngine": 0,
-  "gameFrame": 13936,
-  "gameName": "supergentle",
-  "gameStartedAtInSeconds": 1743740565,
-  "hostPlayerName": "",
-  "mapName": "Bottleneck",
+  "engine": 1,
+  "frame": 6971,
+  "name": "fNxbHwocBGaS",
+  "startedAtInSec": 1742470968,
 }
 `)
-        expect(parsedReplayBwLadderGame1.header?.data).toMatchInlineSnapshot(`
+        expect(parsedReplayBwLadderGame2.header?.data.map).toMatchInlineSnapshot(`
 {
-  "gameEngine": 1,
-  "gameFrame": 10754,
-  "gameName": "AH\`gPwk]]WZC",
-  "gameStartedAtInSeconds": 1742809475,
-  "hostPlayerName": "NAGUNBLO",
-  "mapName": "Deja Vu SE 2.0",
+  "name": "Deja Vu SE 2.0",
 }
 `)
-        expect(parsedReplayBwLadderGame2.header?.data).toMatchInlineSnapshot(`
+        expect(parsedReplayBwLadderGame2.header?.data.hostPlayerName).toMatchInlineSnapshot(`"savagemoving"`)
+        expect(parsedReplayBwLadderGame2.header?.data.players).toMatchInlineSnapshot(`
 {
-  "gameEngine": 1,
-  "gameFrame": 6971,
-  "gameName": "fNxbHwocBGaS",
-  "gameStartedAtInSeconds": 1742470968,
-  "hostPlayerName": "savagemoving",
-  "mapName": "Deja Vu SE 2.0",
+  "SKTX_Mini": {
+    "id": 1,
+    "name": "SKTX_Mini",
+    "race": "protoss",
+    "slotId": 3,
+    "team": 2,
+    "type": "human",
+  },
+  "savagemoving": {
+    "id": 0,
+    "name": "savagemoving",
+    "race": "protoss",
+    "slotId": 0,
+    "team": 1,
+    "type": "human",
+  },
 }
 `)
-        expect(parsedReplayBwLadderGame3.header?.data).toMatchInlineSnapshot(`
+
+        expect(parsedReplayBwLadderGame3.header).toHaveProperty('metadata.checksum')
+        expect(parsedReplayBwLadderGame3.header?.data.game).toMatchInlineSnapshot(`
 {
-  "gameEngine": 1,
-  "gameFrame": 11055,
-  "gameName": "YrPRFmVSXUwp",
-  "gameStartedAtInSeconds": 1704885363,
-  "hostPlayerName": "SKTX_Mini",
-  "mapName": "투혼 1.3",
+  "engine": 1,
+  "frame": 11055,
+  "name": "YrPRFmVSXUwp",
+  "startedAtInSec": 1704885363,
+}
+`)
+        expect(parsedReplayBwLadderGame3.header?.data.map).toMatchInlineSnapshot(`
+{
+  "name": "투혼 1.3",
+}
+`)
+        expect(parsedReplayBwLadderGame3.header?.data.hostPlayerName).toMatchInlineSnapshot(`"SKTX_Mini"`)
+        expect(parsedReplayBwLadderGame3.header?.data.players).toMatchInlineSnapshot(`
+{
+  "E-ny\`Ingyu": {
+    "id": 1,
+    "name": "E-ny\`Ingyu",
+    "race": "protoss",
+    "slotId": 0,
+    "team": 2,
+    "type": "human",
+  },
+  "SKTX_Mini": {
+    "id": 0,
+    "name": "SKTX_Mini",
+    "race": "protoss",
+    "slotId": 1,
+    "team": 1,
+    "type": "human",
+  },
 }
 `)
     })
