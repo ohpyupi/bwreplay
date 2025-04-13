@@ -19,10 +19,10 @@ describe('parseReplay', () => {
     let parsedReplayBwLadderGame2: ParsedReplay
     let parsedReplayBwLadderGame3: ParsedReplay
     beforeAll(() => {
-        parsedReplayOrigLocalGame1 = index(testReplayOrigLocalGame1)
-        parsedReplayBwLadderGame1 = index(testReplayBwLadderGame1)
-        parsedReplayBwLadderGame2 = index(testReplayBwLadderGame2)
-        parsedReplayBwLadderGame3 = index(testReplayBwLadderGame3)
+        parsedReplayOrigLocalGame1 = parseReplay(testReplayOrigLocalGame1)
+        parsedReplayBwLadderGame1 = parseReplay(testReplayBwLadderGame1)
+        parsedReplayBwLadderGame2 = parseReplay(testReplayBwLadderGame2)
+        parsedReplayBwLadderGame3 = parseReplay(testReplayBwLadderGame3)
     })
     it('parses the replayId section', () => {
         expect(parsedReplayOrigLocalGame1.replayId).toHaveProperty('metadata.checksum')
@@ -40,6 +40,7 @@ describe('parseReplay', () => {
   "frame": 13936,
   "name": "supergentle",
   "startedAtInSec": 1743740565,
+  "type": "melee",
 }
 `)
         expect(parsedReplayOrigLocalGame1.header?.data.map).toMatchInlineSnapshot(`
@@ -75,6 +76,7 @@ describe('parseReplay', () => {
   "frame": 10754,
   "name": "AH\`gPwk]]WZC",
   "startedAtInSec": 1742809475,
+  "type": "tvb",
 }
 `)
         expect(parsedReplayBwLadderGame1.header?.data.map).toMatchInlineSnapshot(`
@@ -111,6 +113,7 @@ describe('parseReplay', () => {
   "frame": 6971,
   "name": "fNxbHwocBGaS",
   "startedAtInSec": 1742470968,
+  "type": "tvb",
 }
 `)
         expect(parsedReplayBwLadderGame2.header?.data.map).toMatchInlineSnapshot(`
@@ -147,6 +150,7 @@ describe('parseReplay', () => {
   "frame": 11055,
   "name": "YrPRFmVSXUwp",
   "startedAtInSec": 1704885363,
+  "type": "tvb",
 }
 `)
         expect(parsedReplayBwLadderGame3.header?.data.map).toMatchInlineSnapshot(`
