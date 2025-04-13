@@ -1,11 +1,11 @@
 import {beforeAll, describe, expect, it} from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
-import {parseReplay} from "./index";
-import {ParsedReplay} from "./parsers/sections/types";
+import {parseReplay} from "../src";
+import {ParsedReplay} from "../src/parsers/sections/types";
 
 const loadTestReplayFile = (fileName: string) => {
-    return fs.readFileSync(path.join(__dirname, `../resources/${fileName}`))
+    return fs.readFileSync(path.join(__dirname, `../resources/testReplays/${fileName}`))
 }
 
 const testReplayOrigLocalGame1 = loadTestReplayFile('test-replay-orig-local-game-1.rep')
@@ -40,6 +40,7 @@ describe('parseReplay', () => {
   "frame": 13936,
   "name": "supergentle",
   "startedAtInSec": 1743740565,
+  "type": "melee",
 }
 `)
         expect(parsedReplayOrigLocalGame1.header?.data.map).toMatchInlineSnapshot(`
@@ -75,6 +76,7 @@ describe('parseReplay', () => {
   "frame": 10754,
   "name": "AH\`gPwk]]WZC",
   "startedAtInSec": 1742809475,
+  "type": "tvb",
 }
 `)
         expect(parsedReplayBwLadderGame1.header?.data.map).toMatchInlineSnapshot(`
@@ -111,6 +113,7 @@ describe('parseReplay', () => {
   "frame": 6971,
   "name": "fNxbHwocBGaS",
   "startedAtInSec": 1742470968,
+  "type": "tvb",
 }
 `)
         expect(parsedReplayBwLadderGame2.header?.data.map).toMatchInlineSnapshot(`
@@ -147,6 +150,7 @@ describe('parseReplay', () => {
   "frame": 11055,
   "name": "YrPRFmVSXUwp",
   "startedAtInSec": 1704885363,
+  "type": "tvb",
 }
 `)
         expect(parsedReplayBwLadderGame3.header?.data.map).toMatchInlineSnapshot(`
