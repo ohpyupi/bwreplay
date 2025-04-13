@@ -1,11 +1,11 @@
 import {beforeAll, describe, expect, it} from '@jest/globals';
 import fs from 'fs';
 import path from 'path';
-import {parseReplay} from "./index";
-import {ParsedReplay} from "./parsers/sections/types";
+import {parseReplay} from "../src";
+import {ParsedReplay} from "../src/parsers/sections/types";
 
 const loadTestReplayFile = (fileName: string) => {
-    return fs.readFileSync(path.join(__dirname, `../resources/${fileName}`))
+    return fs.readFileSync(path.join(__dirname, `../resources/testReplays/${fileName}`))
 }
 
 const testReplayOrigLocalGame1 = loadTestReplayFile('test-replay-orig-local-game-1.rep')
@@ -19,10 +19,10 @@ describe('parseReplay', () => {
     let parsedReplayBwLadderGame2: ParsedReplay
     let parsedReplayBwLadderGame3: ParsedReplay
     beforeAll(() => {
-        parsedReplayOrigLocalGame1 = parseReplay(testReplayOrigLocalGame1)
-        parsedReplayBwLadderGame1 = parseReplay(testReplayBwLadderGame1)
-        parsedReplayBwLadderGame2 = parseReplay(testReplayBwLadderGame2)
-        parsedReplayBwLadderGame3 = parseReplay(testReplayBwLadderGame3)
+        parsedReplayOrigLocalGame1 = index(testReplayOrigLocalGame1)
+        parsedReplayBwLadderGame1 = index(testReplayBwLadderGame1)
+        parsedReplayBwLadderGame2 = index(testReplayBwLadderGame2)
+        parsedReplayBwLadderGame3 = index(testReplayBwLadderGame3)
     })
     it('parses the replayId section', () => {
         expect(parsedReplayOrigLocalGame1.replayId).toHaveProperty('metadata.checksum')
