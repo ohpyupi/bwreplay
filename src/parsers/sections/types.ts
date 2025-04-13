@@ -15,6 +15,22 @@ export enum GameEngine {
     Unknown = 'unknown'
 }
 
+export enum GameType {
+    Melee = 'melee',
+    FreeForAll = 'ffa',
+    OneOnOne = '1-on-1',
+    CaptureTheFlag = 'ctp',
+    Greed = 'greed',
+    Slaughter = 'slaughter',
+    SuddenDeath = 'sudden-death',
+    UseMapSettings = 'ums',
+    TeamMelee = 'team-melee',
+    TeamFreeForAll = 'team-ffa',
+    TeamCaptureTheFlag = 'team-ctf',
+    TopVsBottom = 'tvb',
+    Unknown = 'unknown',
+}
+
 export enum PlayerType {
     Human = 'human',
     Computer = 'computer',
@@ -47,6 +63,7 @@ export type ParsedHeaderSectionData = {
         frame: number
         startedAtInSec: number
         name: string
+        type: GameType
     }
     map: {
         name: string
